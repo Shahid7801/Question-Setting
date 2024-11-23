@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Light gray background */
+  }
+  
+  h1, h2, h3 {
+    margin: 1.5rem 0;
+    font-weight: bold;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #370b9d; /* Dark blue navbar */
+    color: #fff; /* White text */
+  }
+  
+  .navbar-logo {
+    flex-grow: 1;
+  }
+  
+  .navbar-select {
+    margin-left: 1rem;
+  }
+  
+  .navbar select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px;
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* White text */
+    cursor: pointer;
+  }
+  
+  /* Main Layout */
+  .main-layout {
+    display: flex;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    margin: 1rem;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 50%;
+    padding: 1rem;
+    margin-top: 15px;
+    color:#f5f5f5 ;
+    background-color: #e0d7d7; /* Light gray sidebar */
+    border-right: 1px solid #ddd; /* Gray border */
+  }
+  
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav li {
+    background-color: yellowgreen;
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar-nav a {
+    width: 50%;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333; /* Dark text */
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .sidebar-nav a:hover {
+    background-color: #ddd; /* Light gray hover */
+  }
+  
+  .sidebar-nav a .icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Content Area */
+  .content {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .content-area {
+    background-color: #fff; /* White content area */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Footer */
+  footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: #eee; /* Light gray footer */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    /* Stack navbar and sidebar on smaller screens */
+    .navbar select {
+        width: 100%;
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+    .navbar,
+    .sidebar {
+      width: 100%;
+      display: block;
+    }
+  
+    .sidebar {
+      margin-bottom: 1rem;
+    }
+  
+    /* Adjust content padding for better layout */
+    .content {
+      padding: 0.5rem;
+    }
+  }
