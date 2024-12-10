@@ -11,15 +11,14 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Create the 'courses' table if it does not exist, including the 'start_date' field
+// Create the 'courses' table if it does not exist
 $tableCreationQuery = "
     CREATE TABLE IF NOT EXISTS courses (
         id INT AUTO_INCREMENT PRIMARY KEY,
         course_name VARCHAR(255) NOT NULL,
         course_code VARCHAR(100) NOT NULL UNIQUE,
         credits INT NOT NULL,
-        program VARCHAR(255) NOT NULL,
-        start_date DATE NOT NULL  -- New column for start date
+        program VARCHAR(100) NOT NULL
     );
 ";
 
@@ -42,7 +41,7 @@ function fetchCourses($program = null) {
 
     // If a program is specified, filter courses by program
     if ($program) {
-        $query .= " WHERE program = '$program'";
+        $query .= " WHERE program = '" . mysqli_real_escape_string($conn, $program) . "'";
     }
 
     $result = mysqli_query($conn, $query);
@@ -71,20 +70,19 @@ switch ($requestMethod) {
         // Read and decode JSON input
         $inputData = json_decode(file_get_contents("php://input"), true);
 
-        if (!isset($inputData['course_name'], $inputData['course_code'], $inputData['credits'], $inputData['program'], $inputData['start_date']) ||
+        if (!isset($inputData['course_name'], $inputData['course_code'], $inputData['credits'], $inputData['program']) ||
             empty($inputData['course_name']) || empty($inputData['course_code']) ||
             !is_numeric($inputData['credits']) || (int)$inputData['credits'] <= 0 ||
-            empty($inputData['program']) || empty($inputData['start_date'])) {
+            empty($inputData['program'])) {
             sendResponse([], 400, 'Invalid or missing input fields');
         }
 
-        $course_name = $inputData['course_name'];
-        $course_code = $inputData['course_code'];
+        $course_name = mysqli_real_escape_string($conn, $inputData['course_name']);
+        $course_code = mysqli_real_escape_string($conn, $inputData['course_code']);
         $credits = (int)$inputData['credits'];
-        $program = $inputData['program'];
-        $start_date = $inputData['start_date'];
+        $program = mysqli_real_escape_string($conn, $inputData['program']);
 
-        $query = "INSERT INTO courses (course_name, course_code, credits, program, start_date) VALUES ('$course_name', '$course_code', $credits, '$program', '$start_date')";
+        $query = "INSERT INTO courses (course_name, course_code, credits, program) VALUES ('$course_name', '$course_code', $credits, '$program')";
         if (mysqli_query($conn, $query)) {
             $courses = fetchCourses();
             sendResponse($courses, 201, 'Course added successfully');
@@ -101,21 +99,20 @@ switch ($requestMethod) {
         // Read and decode JSON input
         $inputData = json_decode(file_get_contents("php://input"), true);
 
-        if (!isset($inputData['id'], $inputData['course_name'], $inputData['course_code'], $inputData['credits'], $inputData['program'], $inputData['start_date']) ||
+        if (!isset($inputData['id'], $inputData['course_name'], $inputData['course_code'], $inputData['credits'], $inputData['program']) ||
             empty($inputData['course_name']) || empty($inputData['course_code']) ||
             !is_numeric($inputData['credits']) || (int)$inputData['credits'] <= 0 ||
-            empty($inputData['program']) || empty($inputData['start_date'])) {
+            empty($inputData['program'])) {
             sendResponse([], 400, 'Invalid or missing input fields');
         }
 
         $id = (int)$inputData['id'];
-        $course_name = $inputData['course_name'];
-        $course_code = $inputData['course_code'];
+        $course_name = mysqli_real_escape_string($conn, $inputData['course_name']);
+        $course_code = mysqli_real_escape_string($conn, $inputData['course_code']);
         $credits = (int)$inputData['credits'];
-        $program = $inputData['program'];
-        $start_date = $inputData['start_date'];
+        $program = mysqli_real_escape_string($conn, $inputData['program']);
 
-        $query = "UPDATE courses SET course_name = '$course_name', course_code = '$course_code', credits = $credits, program = '$program', start_date = '$start_date' WHERE id = $id";
+        $query = "UPDATE courses SET course_name = '$course_name', course_code = '$course_code', credits = $credits, program = '$program' WHERE id = $id";
         if (mysqli_query($conn, $query)) {
             $courses = fetchCourses();
             sendResponse($courses, 200, 'Course updated successfully');

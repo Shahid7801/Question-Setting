@@ -31,7 +31,6 @@ function loadCourses() {
                         <td>${course.course_name}</td>
                         <td>${course.course_code}</td>
                         <td>${course.credits}</td>
-                         <td>${course.start_date}</td> <!-- Add start_date column -->
                         <td>
                             <button type="button" aria-label="Edit Course"
                                 onclick="openEditModal('${course.id}', '${course.course_name}', '${course.course_code}', '${course.credits}')">Edit</button>
@@ -54,7 +53,7 @@ document.getElementById('add-course-form').addEventListener('submit', function(e
     const courseName = document.getElementById('course_name').value.trim();
     const courseCode = document.getElementById('course_code').value.trim();
     const credits = document.getElementById('credits').value.trim();
-    const startDate = document.getElementById('start_date').value; // New field
+    // const startDate = document.getElementById('start_date').value; // New field
 
     // Validation checks
     if (!program) {
@@ -83,7 +82,7 @@ document.getElementById('add-course-form').addEventListener('submit', function(e
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ course_name: courseName, course_code: courseCode, credits: credits, start_date: startDate, program })
+        body: JSON.stringify({ course_name: courseName, course_code: courseCode, credits: credits, program })
     })
     .then(response => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -105,7 +104,6 @@ function openEditModal(courseId, courseName, courseCode, credits) {
     document.getElementById('edit_course_name').value = courseName;
     document.getElementById('edit_course_code').value = courseCode;
     document.getElementById('edit_credits').value = credits;
-    document.getElementById('edit_start_date').value = startDate; // New field
 }
 
 // Close the edit modal
@@ -122,7 +120,6 @@ document.getElementById('edit-form').addEventListener('submit', function(event) 
     const courseName = document.getElementById('edit_course_name').value.trim();
     const courseCode = document.getElementById('edit_course_code').value.trim();
     const credits = document.getElementById('edit_credits').value.trim();
-    const startDate = document.getElementById('edit_start_date').value; // New field
 
 
     // Validation checks

@@ -1,193 +1,502 @@
 
-/* Dark Theme CSS */
 
-/* Color Variables */
-:root {
-    --bg-primary: #121212;
-    --bg-secondary: #1e1e1e;
-    --bg-tertiary: #242424;
-    --text-primary: #e0e0e0;
-    --text-secondary: #cccccc;
-    --accent-primary: #64b5f6;
-    --accent-secondary: #42a5f5;
-    --accent-danger: #f44336;
-    --accent-warning: #ffc107;
-    --accent-success: #4CAF50;
+
+/*  submitted course         */
+#submitted-course{
+    background: #DFDCE3;
+    width: 80%;
+    min-height: 30vh;
+    border: none;
+    border-radius: 7px;
+    margin: 0 auto;
+       border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    
 }
-
-/* Typography */
-h2, h3 {
-    color: var(--text-primary);
-    margin-bottom: 15px;
-}
-
-a {
-    color: var(--accent-primary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: var(--accent-secondary);
-}
-
-/* Form Elements */
-form {
-    background-color: var(--bg-tertiary);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
-    margin-bottom: 25px;
-}
-
-label {
-    display: block;
-    margin: 12px 0 8px;
-    color: var(--text-secondary);
-}
-
-input, select, textarea {
+#submitted-course h2{
+    background:  #26152a;
+    border: none;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+/* padding: 10px; */
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid #444;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+/* Courses Table - Single Line */
+#courses-table {
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    table-layout: fixed; /* Adjust column widths to fit in one line */
+}
+
+#courses-table th, #courses-table td {
+    border: 1px solid #44475a;
+    padding: 10px;
+    /* text-align: center; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevent wrapping */
+    color: rgb(0, 0, 0);
+}
+
+#courses-table th {
+    background-color: #593262;
+    color: #b9f0f5;
+}
+
+/* Add and Edit Forms */
+.add-edit{
+    width: 90%;
+    /* min-height:25vh ;     */
+    margin: 0 auto;
+    display: flex;
+}
+
+
+
+#add-course, #edit-modal {
+    margin: 0 auto;
+justify-content:flex-start;
+/* gap: 10px; */
+width: 40%;
+    /* padding: 20px; */
+    background-color:  #DFDCE3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    font-size: 14px;
+    border: 1px solid black;
+    color: black;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
+#add-course h2, #edit-modal h2 {
+    text-align: center;
+    background: #26152a;
+    width: 100%;
+    height: 25px;
+    padding-top: 3px;
+    /* margin-bottom: 20px; */
+    color: #b9f0f5;
+    font-size: medium;
+    text-transform: uppercase;
 }
 
-button {
-    padding: 12px 20px;
-    background-color: var(--accent-primary);
-    color: var(--text-primary);
+#add-course form, #edit-modal form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px; */
+    color: rgb(0, 0, 0);
+    padding: 13px;
+    
+}
+
+#add-course input, #edit-modal input{
+    padding: 5px;
     border: none;
     border-radius: 4px;
+    font-size: 1rem;
+    color: black;
+}
+
+#add-course input, #edit-modal input {
+    background-color: #ffffff;
+    color: #000000;
+}
+#add-course input::placeholder{
+    color: #e4d6d6;
+}
+#add-course button, #edit-modal button {
+    background-color: #2e4033;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 15px;
+    width: 50%;
+    margin: 20px auto;
+    color: #e1e2e5;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: var(--accent-secondary);
+#add-course button:hover, #edit-modal button:hover {
+    background-color: #2e4033;
+    color: black;
 }
 
-/* Table Styles */
-table {
+/*                                          add - outcome                          */
+
+.model{
+    width: 90%;
+    min-height: 30vh;
+    background:#DFDCE3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    /* gap: 2px; */
+    color: rgb(0, 0, 0);
+    border: .5px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+ 
+
+}
+.model form{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.model h2{
+    background:#26152a;
+    padding-top: 10px;
     width: 100%;
-    border-collapse: collapse;
-    background-color: var(--bg-tertiary);
+    height: 40px;
+
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-transform: uppercase;
+}
+.model label {
+/*Ensure label is on its own line*/
+font-weight: bold;
+margin-left: 20px;
+margin-top: 10px
+
+}
+.model  select{
+    margin:0 auto;
+    /* background: #9fa9a6; */
+    width: 90%;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
+ .model textarea{
+    width: 90%; /* Ensures it takes up the container width */
+    resize: vertical;
+    min-height: 15vh;
+    max-height: 30vh;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* margin-bottom: 10px; */
+    box-sizing: border-box;
+margin: 0 auto;
+background: #ffffff;
+}
+
+
+.model small {
+    color: #112818; /* Optional: Set color for the helper text */
+    padding-left: 100px;
+}
+/* Button Styling */
+.model button {
+  
+    font-size: 1rem;
+    background-color: #102e2d;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 4px;
+    /* text-emphasis: none; */
+    align-items: center;
+    margin: 10px auto;
+    cursor: pointer;
+    height: 30px;
+    width: 40%;
+    transition: background-color 0.3s ease;
+}
+.model h3{
+    text-align: center;
+    background: #26152a;
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    color:white;
+    text-transform: uppercase;
+}
+.model button:hover {
+    background-color: #061110;
+}
+
+/* outcome */
+
+#outcomes-list {
+    list-style-type: decimal; /* Use decimal numbers for list items */
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+#outcomes-list li {
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#outcomes-list button{
+    background: green;
+    width: 10%;
+    margin-left: 10px;
+}
+/* edit heading */
+.edit-head{
+    display: flex;
+    background: #26152a;
+    width: 100%;
+    /* justify-content: space-evenly; */
+}
+.edit-head span{
+    border: none;
+    font-size: 30px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5px;
+    cursor: pointer;
+
+}
+.edit-head span:hover{
+    border: 1px solid black;
+}
+.edit-head h2{
+    width: 95%;
+    margin: 0;
+}
+
+
+/*                                add question                             */
+
+ #submitted-course h3{
+    width:100%;
+    height: 35px;
+    color: rgba(255, 255, 255, 0.776);
+    text-align: center;
+    background: #26152a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-transform: uppercase;
+    padding-top: 15px;
+    
+ }
+
+#questionForm{
+    width: 100%; 
+}
+#questionForm, input{
+    width: 88%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+
+
+ #filterForm select{
+    padding: 10px;
+ }
+
+ #filterForm {
+   display: flex;
+   flex-direction: column;
+    gap: 10px;
+    margin: 2px auto;
+    background-color: none;
+    padding: 20px;
+ 
+}
+#filterBtn{
+    margin: 0 auto;
+    align-items: center;
+    background: #12252c;
+    color: white;
+    font: bold;
+    font-size: large;
+    width: 30%;
+    height: 35px;
     border-radius: 10px;
-    overflow: hidden;
-    margin-top: 25px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
+}
+#filterBtn:hover{
+    background: #4b7e82;
+    color: rgb(243, 167, 237);
 }
 
-thead {
-    background-color: var(--bg-secondary);
+#filterForm label{
+    width: 40%;
+    /* background: #000; */
+}
+#filterForm select{
+    max-width: 100%;
+    /* background: #000; */
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #444;
+.question-list{
+/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+list-style:decimal;
+width:80%;
+min-height: 20vh;
+margin: 20px auto;
+border: none;
+border-radius: 7px;
+background: #DFDCE3;
+/* padding-left: 30px; */
+
+
+
+}
+.question-list h3{
+    width:100%;
+    height: 30px;
+    color: rgba(255, 255, 255, 0.776);
+    text-align: center;
+    background: #26152a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-transform: uppercase;
+padding-top: 3px;
+}
+/* question list btn */
+#model-2 button{
+    width: 10%;
+    }
+
+
+.questions-container{
+    padding: 15px;
+    min-height: 20vh;
+
 }
 
-/* List Styles */
-ul {
-    list-style-type: none;
+/* report */
+
+.question-lis{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width:80%;
+    margin: 40px auto;
+    border: none;
+    border-radius: 7px;
+    background: #DFDCE3;
+    
+    
+    
+    
+    }
+.question-lis{
+    padding: 20px;
+
+}
+.question-lis h3{
+    color: red;
+    width: 100%;
+    text-align: center;
+    background: #000;
     padding: 0;
 }
 
-ul li {
-    background: var(--bg-tertiary);
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: var(--bg-secondary);
-    margin: 15% auto;
+.report{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    list-style-type:decimal;
+    padding-left: 30px;
+    width:75%;
     padding: 20px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    width: 50%;
-    max-width: 500px;
-}
+    min-height: 20vh;
+    margin: 20px auto;
+    border: none;
+    border-radius: 7px;
+    background: #DFDCE3;
+    line-gap-override: 20px;
+    margin-bottom: 20px;
+    
+    }
+    .report h3{
+        color: white;
+        width: 100%;
+        background: rgb(23, 7, 24);
+        padding: 3px;
+        text-align: center;
+        border-radius: 3px;
+    }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-.close:hover {
-    color: var(--text-primary);
-}
 
-/* Footer */
-footer {
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
 
-/* Utility Classes */
-.btn-danger {
-    background-color: var(--accent-danger);
-}
 
-.btn-warning {
-    background-color: var(--accent-warning);
-}
 
-.btn-success {
-    background-color: var(--accent-success);
-}
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Media Queries for Responsive Design */
+
+/* For screens smaller than 1024px (Tablets and small laptops) */
+@media (max-width: 400px) {
+    #submitted-course {
+        width: 90%;
+    }
+
+    #add-course, #edit-modal {
+        width: 70%;
+    }
+
+    .model {
         width: 95%;
     }
 
-    aside {
-        width: 100%;
-        height: auto;
+    #filterForm {
+        flex-direction:column;
+        align-items: center;
+    
+    }
+#outcome {
+    width: 30%;
+}
+select option{
+    max-width: 20%;
+    background: #000;
+    color: white;
+}
+    #filterBtn {
+        width: 50%;
     }
 
-    main {
-        flex-direction: column;
-    }
-
-    .content {
-        margin-left: 0;
+    .question-list, .report, .question-lis {
+        width: 90%;
     }
 }
+

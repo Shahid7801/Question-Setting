@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="assets/css/dark-theme.css">
 </head>
 <body>
-    <div>
+    <div class="model">
         <!-- Select Course Section -->
-        <div>
+       
             <h2>Question Management</h2>
 
             <label for="course">Select Course:</label>
             <select id="course" name="course" aria-label="Select a course">
                 <!-- Options of courses will be displayed here dynamically -->
             </select>
-        </div>
+        
 
         <!-- Question Submission Form -->
         <form id="questionForm" aria-labelledby="questionForm">
@@ -48,7 +48,7 @@
     <div class="container">
 
         <!-- Questions List -->
-        <div>
+        <div class="model" id="model-2">
             <h3>Questions List</h3>
             <ul id="questions-list">
                 <!-- List of questions will be displayed here dynamically -->
@@ -56,15 +56,17 @@
         </div>
 
         <!-- Edit Question Modal -->
-        <div id="editQuestionModal" class="modal">
+        <div id="editQuestionModal" class="model">
             <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="edit-head">
                 <h2>Edit Question</h2>
+                <span class="close" onclick="closeModal()">&times;</span>   
+            </div>
                 <form id="editQuestionForm">
                     <label for="editQuestionText">Question Text:</label>
                     <textarea id="editQuestionText" rows="4" required></textarea>
                     <small id="question-help">Edit question text. Use back tick, Don't use single or double quotes.</small>
-
+                    
                     <label for="editMarks">Marks:</label>
                     <input type="number" id="editMarks" required />
 
